@@ -11,7 +11,7 @@ def real_word(word):
     for tag in tags:
         word = word.replace(tag, '')
         
-    if word in open('german/german.dic', 'r').read():
+    if word in open('german/german.dic', 'r', encoding="latin-1").read():
         return True
     else:
         return False
@@ -19,7 +19,7 @@ def real_word(word):
 
 def main():
     # Convert Input.jsonl to list of .json - Objects [ARGPARSE]
-    with open("completely_new_gt.jsonl", 'r', encoding="UTF-8") as json_file:
+    with open("completely_new_gt.jsonl", 'r', encoding="utf-8") as json_file:
         json_list = list(json_file)
 
     # Open Output File [ARGPARSE]
