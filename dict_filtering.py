@@ -38,15 +38,14 @@ def main():
         json_list = list(json_file)
 
     # Open Output File [ARGPARSE]
-    realWordsOutputFile = open('outputfile_real_words_vers2.jsonl', 'a+', encoding="UTF-8")
+    realWordsOutputFile = open('outputfile_real_words_vers2.jsonl', 'w+', encoding="UTF-8")
     unsortedOutputFile = open('outputfile_unsorted_words_vers2.jsonl', 'w+', encoding="UTF-8")
     
     # Go through every json object in jsonlist
     for json_str in json_list:
         result = json.loads(json_str)
         current_word = result['source_word']
-
-        print(current_word)
+        
         if checkWord(current_word):
             json.dump(result, realWordsOutputFile)
             realWordsOutputFile.write("\n")
